@@ -5,7 +5,7 @@ const db = require('./Database/connection')
 
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
-
+const cors = require('cors')
 
 const demoroute = require('./route/demoRoute')
 const CategoryRoute = require('./route/categoryRoute')
@@ -14,12 +14,12 @@ const UserRoute = require('./route/userRoute')
 const OrderRoute = require('./route/orderRoute')
 
 const port = process.env.PORT
-
 const app = express()
 
 // middleware
 app.use(bodyParser.json())
 app.use(morgan('dev'))
+app.use(cors())
 
 // routes
 app.use('/api',demoroute)
