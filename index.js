@@ -28,7 +28,7 @@ app.use('/api',ProductRoute)
 app.use('/api',UserRoute)
 app.use('/api',OrderRoute)
 
-app.use('/api/uploads',express.static('public/uploads'))
+app.use('/public/uploads',express.static('public/uploads'))
 
 //methods
 // app.get(url, function(request,response){ statements})

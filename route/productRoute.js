@@ -1,5 +1,5 @@
 const express = require('express')
-const { addProduct, productList, productDetails, productByCategory, updateProduct, deleteProduct } = require('../controller/productController')
+const { addProduct, productList, productDetails, productByCategory, updateProduct, deleteProduct, filterProduct, findRelated } = require('../controller/productController')
 const { requireSignin } = require('../controller/userController')
 const upload = require('../fileUpload/upload')
 const { productValidationSchema, validation } = require('../Validation/validator')
@@ -11,5 +11,7 @@ router.get('/productdetails/:product_id', productDetails)
 router.get('/productbycategory/:category_id', productByCategory)
 router.put('/productupdate/:id', requireSignin, updateProduct)
 router.delete('/deleteproduct/:id', requireSignin,deleteProduct)
+router.post('/filterproduct',filterProduct)
+router.get('/findrelated/:id', findRelated)
 
 module.exports = router
