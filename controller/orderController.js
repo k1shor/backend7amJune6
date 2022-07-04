@@ -13,7 +13,7 @@ exports.placeOrder = async (req, res) => {
             let new_order_item = new OrderItems({
                 product : orderItem.product,
                 quantity : orderItem.quantity,
-                totalPrice : orderItem.quantity * product.product_price
+                totalPrice : orderItem.quantity * orderItem.price
             })
             new_order_item = await new_order_item.save()
             if (!new_order_item) {
